@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CASE_STUDIES, bySlug } from "@/lib/case-studies";
 import Reveal from "@/components/reveal";
-import TextAnimation from "@/components/ui/staggerText";
 import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import LineHoverLink from "@/components/ui/line-hover-link";
+import JsonLd from "@/components/json-ld";
+import { breadcrumbSchema, caseStudySchema, SITE } from "@/lib/seo";
 
 export async function generateStaticParams() {
   return CASE_STUDIES.map((c) => ({ slug: c.slug }));
@@ -21,9 +22,24 @@ export async function generateMetadata({
   const { slug } = await params;
   const cs = bySlug(slug);
   if (!cs) return {};
+  const url = `${SITE.url}/work/${cs.slug}`;
   return {
-    title: `${cs.title} — Actorix case study`,
+    title: `${cs.title} — ${cs.category} case study`,
     description: cs.summary,
+    alternates: { canonical: `/work/${cs.slug}` },
+    openGraph: {
+      type: "article",
+      url,
+      title: `${cs.title} — ${cs.category}`,
+      description: cs.summary,
+      images: [cs.image ?? "/opengraph-image.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cs.title} — ${cs.category}`,
+      description: cs.summary,
+      images: [cs.image ?? "/opengraph-image.png"],
+    },
   };
 }
 
@@ -40,6 +56,16 @@ export default async function CaseStudyPage({
 
   return (
     <div className="flex-1">
+      <JsonLd
+        data={[
+          caseStudySchema(cs),
+          breadcrumbSchema([
+            { name: "Home", url: SITE.url },
+            { name: "Work", url: `${SITE.url}/#work` },
+            { name: cs.title, url: `${SITE.url}/work/${cs.slug}` },
+          ]),
+        ]}
+      />
       <ScrollProgress />
 
       <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-md">
@@ -86,8 +112,8 @@ export default async function CaseStudyPage({
           <p className="mt-8 text-xs font-medium tracking-[0.28em] text-ink-faint uppercase">
             {cs.category} · {cs.year}
           </p>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl font-medium leading-[1.06] tracking-tight md:text-6xl">
-            <TextAnimation>{cs.title}</TextAnimation>
+          <h1 className="rise rise-1 mt-5 max-w-3xl font-display text-4xl font-medium leading-[1.06] tracking-tight md:text-6xl">
+            {cs.title}
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
             {cs.summary}

@@ -26,6 +26,9 @@ import WorkStack from "@/components/work-stack";
 import ProcessTimeline from "@/components/process-timeline";
 import LaunchNotice from "@/components/launch-notice";
 import { FaWhatsapp } from "react-icons/fa";
+import type { Metadata } from "next";
+import JsonLd from "@/components/json-ld";
+import { faqSchema, SITE, DEFAULT_DESCRIPTION } from "@/lib/seo";
 
 const WHATSAPP_URL =
   "https://wa.me/919004933771?text=Hi%20Actorix%2C%20I%20want%20to%20discuss%20a%20project";
@@ -48,6 +51,7 @@ const techs = [
 
 const services = [
   {
+    slug: "ai-automation",
     number: "01",
     title: "AI Automation & Chatbots",
     tagline: "Cut manual work with AI that handles it for you.",
@@ -59,6 +63,7 @@ const services = [
     ],
   },
   {
+    slug: "custom-software-development",
     number: "02",
     title: "Custom Software & Web Apps",
     tagline: "Software shaped exactly to how your business runs.",
@@ -70,6 +75,7 @@ const services = [
     ],
   },
   {
+    slug: "saas-mvp-development",
     number: "03",
     title: "SaaS & MVP Development",
     tagline: "From idea to launched product, fast.",
@@ -213,6 +219,12 @@ const faqs = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: "Actorix — AI Automation & Custom Software Company in India",
+  description: DEFAULT_DESCRIPTION,
+  alternates: { canonical: "/" },
+};
+
 const navLinks = [
   ["Services", "#services"],
   ["Work", "#work"],
@@ -223,6 +235,7 @@ const navLinks = [
 export default function Home() {
   return (
     <div className="flex-1">
+      <JsonLd data={faqSchema(faqs)} />
       <LaunchNotice />
       <ScrollProgress />
 
@@ -381,6 +394,15 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <Link
+                href={`/services/${s.slug}`}
+                className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-medium text-ink transition-colors hover:text-red"
+              >
+                Learn more
+                <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                  →
+                </span>
+              </Link>
               </SpotlightCard>
             </Reveal>
           ))}
