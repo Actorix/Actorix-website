@@ -220,3 +220,21 @@ probe here times out rather than returning slow frames. So FPS cannot be sampled
 in this setup and JS-driven animations (framer `animate`, springs) appear frozen
 at their initial value in screenshots. CSS keyframe animations still render.
 Verify JS animations by reading code/DOM state, not by screenshot.
+
+
+## Removed: SocialFlipButton — 2026-08-07
+
+Vengeance's `social-flip-button` (the A·C·T·X tiles) was **removed from the contact
+band** and replaced with plain always-visible pills in `components/contact-socials.tsx`.
+
+Reason: the component reveals each social icon only on hover. Touch devices have no
+hover state, so mobile visitors — the majority of Indian B2B traffic — saw four
+unlabelled letters (A C T X) with no way to discover what they linked to. Even on
+desktop the letters gave no affordance to hover.
+
+Replacement shows icon + label at all times, `min-h-[44px]` tap targets, hover lift
+retained for pointer devices, `active:scale-95` for touch feedback.
+
+**Rule this establishes:** never let hover be the *mechanism* for revealing content or
+function. Hover may enhance; it must not gate. Check every borrowed component for this
+before shipping — library demos are almost always designed desktop-first.

@@ -25,6 +25,7 @@ import GithubCard from "@/components/github-card";
 import WorkStack from "@/components/work-stack";
 import ProcessTimeline from "@/components/process-timeline";
 import LaunchNotice from "@/components/launch-notice";
+import SiteHeader from "@/components/site-header";
 import { FaWhatsapp } from "react-icons/fa";
 import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
@@ -239,50 +240,15 @@ export default function Home() {
       <LaunchNotice />
       <ScrollProgress />
 
-      {/* ── Nav ─────────────────────────────────────────── */}
-      <header className="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5">
-          <a href="#top" className="flex items-center gap-2.5">
-            <Image
-              src="/logo-mark.png"
-              alt="Actorix logo"
-              width={36}
-              height={30}
-              priority
-              className="h-[30px] w-auto"
-            />
-            <span className="font-display text-[19px] font-medium tracking-[0.08em]">
-              Actorix
-            </span>
-          </a>
-          <nav className="hidden items-center gap-8 text-sm text-ink-soft md:flex">
-            {navLinks.map(([label, href]) => (
-              <LineHoverLink
-                key={href}
-                href={href}
-                variant="slide"
-                className="transition-colors hover:text-ink"
-              >
-                {label}
-              </LineHoverLink>
-            ))}
-          </nav>
-          <a
-            href="#contact"
-            className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-12px_rgba(11,11,15,0.55)]"
-          >
-            Start a project
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* ── Hero ────────────────────────────────────────── */}
       <section id="top" className="relative overflow-hidden">
         <HeroAurora />
         <HeroSparkles />
         <HeroParallax>
-          <div className="relative mx-auto max-w-6xl px-6 pt-32 pb-28 md:pt-40 md:pb-36">
-            <p className="rise rise-1 shimmer text-xs font-medium tracking-[0.28em]">
+          <div className="relative mx-auto max-w-6xl px-5 pt-28 pb-24 sm:px-6 md:pt-40 md:pb-36">
+            <p className="rise rise-1 shimmer text-[11px] font-medium tracking-[0.16em] sm:text-xs sm:tracking-[0.28em]">
               AI · AUTOMATION · CUSTOM SOFTWARE
             </p>
             <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.04] tracking-tight md:text-7xl">
@@ -371,7 +337,7 @@ export default function Home() {
       {/* ── Services ────────────────────────────────────── */}
       <section id="services" className="mx-auto max-w-6xl px-6 py-24 md:py-28">
         <Reveal>
-          <p className="shimmer text-xs font-medium tracking-[0.28em]">WHAT WE DO</p>
+          <p className="shimmer text-[11px] font-medium tracking-[0.16em] sm:text-xs sm:tracking-[0.28em]">WHAT WE DO</p>
           <h2 className="mt-4 max-w-2xl font-display text-3xl font-medium tracking-tight md:text-5xl">
             <TextAnimation>Three ways we move your business.</TextAnimation>
           </h2>
@@ -413,7 +379,7 @@ export default function Home() {
       <section aria-label="Automation examples" className="border-y border-line bg-[#FCFCFD] py-20">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
-            <p className="text-xs font-medium tracking-[0.28em] text-ink-faint">
+            <p className="text-[11px] font-medium tracking-[0.16em] sm:text-xs sm:tracking-[0.28em] text-ink-faint">
               CONCRETELY
             </p>
             <h2 className="mt-4 max-w-2xl font-display text-3xl font-medium tracking-tight md:text-4xl">
@@ -443,7 +409,7 @@ export default function Home() {
       {/* ── Estimator ───────────────────────────────────── */}
       <section id="estimate" className="mx-auto max-w-6xl px-6 py-24">
         <Reveal>
-          <p className="text-xs font-medium tracking-[0.28em] text-ink-faint">
+          <p className="text-[11px] font-medium tracking-[0.16em] sm:text-xs sm:tracking-[0.28em] text-ink-faint">
             INSTANT ESTIMATE
           </p>
           <h2 className="mt-4 max-w-2xl font-display text-3xl font-medium tracking-tight md:text-5xl">
@@ -484,7 +450,7 @@ export default function Home() {
         <StatsStrip />
         <Reveal delay={0.1}>
           <div className="mt-16 border-t border-line pt-10">
-            <p className="text-xs font-medium tracking-[0.28em] text-ink-faint">
+            <p className="text-[11px] font-medium tracking-[0.16em] sm:text-xs sm:tracking-[0.28em] text-ink-faint">
               TRUSTED BY
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-x-12 gap-y-5">
@@ -666,7 +632,7 @@ export default function Home() {
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 px-6 py-10 text-sm text-ink-faint md:flex-row">
           <p>© 2026 Actorix — Mumbai, India</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             <LineHoverLink
               href="mailto:hello@actorix.in"
               variant="slide"
