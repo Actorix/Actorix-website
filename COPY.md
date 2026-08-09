@@ -192,10 +192,13 @@ hello@actorix.in · LinkedIn · Instagram · GitHub
 - [x] LinkedIn company page URL — https://www.linkedin.com/company/139434025/ (numeric public URL; set a vanity slug like /company/actorix in LinkedIn admin later)
 - [x] Instagram — https://www.instagram.com/actorix.in/ (handle is actorix.in with a dot, not underscore)
 - [x] GitHub org — https://github.com/Actorix (created 2026-08-06 ✓)
-- [x] WhatsApp — 9004933771 confirmed 2026-08-06; wa.me/919004933771 with prefilled
-      message wired into contact band, assistant orb, and footer
+- [x] WhatsApp — switched 2026-08-07 to the **WhatsApp Business** number
+      **+91 91364 33771** (old personal 90049 33771 retired from the site).
+      The number now lives in ONE place: `SITE.whatsapp` in `lib/seo.ts`.
+      Everything else imports `WHATSAPP_INTRO` (prefilled) or `WHATSAPP_BASE`
+      (estimator appends its own text) — never hardcode it again.
 - [x] Contact form LIVE + tested end-to-end (Formspree xvkpgzwd → hello@actorix.in, 50/mo free tier) — 2026-08-06
-- [x] WhatsApp LIVE (+91 90049 33771) — contact band, orb, footer
+- [x] WhatsApp LIVE (+91 91364 33771 — Business account) — contact band, orb, footer, estimator, schema.org
 - [x] Cal.com booking LIVE — cal.com/actorix-9b0leh (band + orb). SUGGEST: rename username to something clean like "actorix" in Cal settings — if renamed, update CAL_URL in page.tsx + orb (old link breaks!)
 - [x] Automation-examples strip (6 concrete one-liners, "CONCRETELY" band) — 2026-08-06
 - [x] Estimator widget LIVE (#estimate) WITH PRICING — 3-step chips → ₹/$ range +

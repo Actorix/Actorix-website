@@ -238,3 +238,37 @@ retained for pointer devices, `active:scale-95` for touch feedback.
 **Rule this establishes:** never let hover be the *mechanism* for revealing content or
 function. Hover may enhance; it must not gate. Check every borrowed component for this
 before shipping — library demos are almost always designed desktop-first.
+
+
+## Inner-page consistency pass — 2026-08-08 (commit d80a9ef)
+
+Audit finding: the homepage ran 15+ effects while service pages, case studies and
+blog posts had **fade-ups only** — and those inner pages are where search traffic
+lands. The premium gap was consistency, not a missing component.
+
+- Word-rise (`TextAnimation`) added to 14 inner-page H2s.
+  **H1s deliberately excluded** — they are the LCP element and must never depend
+  on JS. Same rule as the earlier landing-page fix.
+- `components/toc.tsx` — sticky table of contents on blog posts, `lg` and up,
+  hidden under 3 sections. **One IntersectionObserver over the headings**: no
+  scroll listener, no rAF, no per-frame measurement. Only the active link
+  re-renders.
+- Heading `id`s via a `slugify` helper + `scroll-mt-24` so TOC jumps clear the
+  sticky header.
+
+### Evaluated and rejected
+| Component | Why not |
+|---|---|
+| Skiper41 `ProgressiveBlur` | Zero-dep and genuinely static, but built on `backdrop-filter` — the exact cost we cut from the sticky header. Decoration with a real price. |
+| Skiper40 link hovers | Vengeance `LineHoverLink` is already installed and does the same job. No second dependency for a solved problem. |
+| Skiper47/48/50/51 carousels | Pull in Swiper (~150 KB). If testimonials ever need a carousel, **Skiper52 is framer-only** — use that instead. |
+
+### Verified after
+`will-change` elements **0** on both blog and service pages · no horizontal scroll ·
+no new dependencies · titles, canonicals, slugs and all JSON-LD unchanged · every
+H2's text still present in the server HTML (word-rise wraps, it does not hide).
+
+### Still unused but available, if a section ever needs them
+Vengeance `spotlight-navbar` (nav is plain), `stacked-logos` (Trusted By strip),
+`animated-tooltip` (static chips only — never the moving marquee),
+`staggered-grid`, `morph-text`, `flip-text`.

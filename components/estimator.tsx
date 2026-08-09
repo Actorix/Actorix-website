@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { BANDS, SCOPE_HINT, type Band } from "@/lib/pricing";
+import { WHATSAPP_BASE } from "@/lib/seo";
 
 /* Project estimator — interactive lead-capture widget.
    Ranges live in lib/pricing.ts (set from 2026 market research). Every range
@@ -24,8 +25,6 @@ const SIZES = [
 ] as const;
 
 const TIMINGS = ["ASAP", "2–4 weeks", "1–2 months", "Flexible"] as const;
-
-const WHATSAPP_BASE = "https://wa.me/919004933771?text=";
 
 const stepVariants = {
   enter: { opacity: 0, y: 16 },

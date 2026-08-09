@@ -9,8 +9,8 @@ export const SITE = {
   // Used in <title> as "Page — Actorix"
   tagline: "AI Automation & Custom Software Studio",
   email: "hello@actorix.in",
-  phone: "+91-90049-33771",
-  whatsapp: "https://wa.me/919004933771",
+  phone: "+91-91364-33771",
+  whatsapp: "https://wa.me/919136433771",
   booking: "https://cal.com/actorix-9b0leh",
   city: "Mumbai",
   region: "Maharashtra",
@@ -18,6 +18,17 @@ export const SITE = {
   founder: "Ajinkya Dhumal",
   founded: "2025",
 } as const;
+
+/** WhatsApp deep link with the opening line prefilled, so a visitor lands in
+    an open chat rather than a blank one — and website leads stay
+    distinguishable from every other message. Import this instead of writing
+    the number anywhere else. */
+export const WHATSAPP_INTRO = `${SITE.whatsapp}?text=${encodeURIComponent(
+  "Hi Actorix, I want to discuss a project",
+)}`;
+
+/** Base for links that append their own message (e.g. the estimator). */
+export const WHATSAPP_BASE = `${SITE.whatsapp}?text=`;
 
 /** Every profile we control — these power schema.org sameAs, which is the
     strongest signal for winning a brand SERP against a same-name domain. */

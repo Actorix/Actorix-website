@@ -5,14 +5,14 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { ASSISTANT, looksLikeIntent } from "@/lib/assistant";
+import { WHATSAPP_INTRO } from "@/lib/seo";
 
 /* Ari — the Actorix assistant.
    The logo mark itself is the launcher: click the orb and it becomes the chat.
    Talks only to /api/assistant (our server), never to Groq directly, so the
    API key stays server-side. */
 
-const WHATSAPP_URL =
-  "https://wa.me/919004933771?text=Hi%20Actorix%2C%20I%20want%20to%20discuss%20a%20project";
+const WHATSAPP_URL = WHATSAPP_INTRO;
 const CAL_URL = "https://cal.com/actorix-9b0leh";
 
 type Msg = { role: "user" | "assistant"; content: string };

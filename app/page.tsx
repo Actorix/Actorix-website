@@ -30,10 +30,9 @@ import SiteHeader from "@/components/site-header";
 import { FaWhatsapp } from "react-icons/fa";
 import type { Metadata } from "next";
 import JsonLd from "@/components/json-ld";
-import { faqSchema, SITE, DEFAULT_DESCRIPTION } from "@/lib/seo";
+import { faqSchema, SITE, DEFAULT_DESCRIPTION, WHATSAPP_INTRO } from "@/lib/seo";
 
-const WHATSAPP_URL =
-  "https://wa.me/919004933771?text=Hi%20Actorix%2C%20I%20want%20to%20discuss%20a%20project";
+const WHATSAPP_URL = WHATSAPP_INTRO;
 
 const CAL_URL = "https://cal.com/actorix-9b0leh";
 
