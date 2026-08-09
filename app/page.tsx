@@ -137,10 +137,11 @@ const work: {
     Shot: QuantLabShot,
   },
   {
+    caseSlug: "cakerush",
     title: "CakeRush",
     category: "Commerce · cakerush.in",
-    line: "A fast, fresh storefront for a bakery brand — customized cake orders routed straight to WhatsApp, built to convert on mobile.",
-    stack: ["Next.js", "WhatsApp ordering", "SEO"],
+    line: "An editorial storefront for a Bandra cake atelier — 31 cakes with real prices, and every order routed to WhatsApp instead of a checkout.",
+    stack: ["Next.js", "WhatsApp ordering", "Editorial design"],
     href: "https://www.cakerush.in",
     image: "/work/cakerush.jpg",
   },
@@ -633,6 +634,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-6xl flex-col justify-between gap-4 px-6 py-10 text-sm text-ink-faint md:flex-row">
           <p>© 2026 Actorix — Mumbai, India</p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <LineHoverLink
+              href="/blog"
+              variant="slide"
+              className="text-ink-soft transition-colors hover:text-ink"
+            >
+              Writing
+            </LineHoverLink>
             <LineHoverLink
               href="mailto:hello@actorix.in"
               variant="slide"

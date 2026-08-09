@@ -80,6 +80,63 @@ export const CASE_STUDIES: CaseStudy[] = [
     timeline: "Designed, built and shipped as a complete brand platform.",
   },
   {
+    slug: "cakerush",
+    title: "CakeRush",
+    client: "Cake Rush, Bandra West",
+    category: "Commerce site + WhatsApp ordering",
+    year: "2026",
+    liveUrl: "https://www.cakerush.in",
+    image: "/work/cakerush.jpg",
+    summary:
+      "A six-year-old home bakery in Bandra had a following on Instagram and nowhere to send it. We built the storefront — and made ordering a message, not a checkout.",
+    problem: [
+      "Cake Rush began in 2020 with a single red velvet cake iced on a kitchen counter on Carter Road. Six years later the orders were real and regular, but the entire business lived inside Instagram DMs.",
+      "Customers had no way to browse the range or see prices without asking. Every enquiry started from zero — what flavours, what sizes, how much — and each one cost the owner a conversation before it became a sale.",
+      "A conventional e-commerce checkout would have been the wrong tool. Every cake is made to order, most need a conversation about the occasion, and a 24-hour minimum makes an instant-buy button misleading.",
+      "The brand also deserved better than a template. This is a bakery whose customers name the cake after the child it was made for — a generic shop layout would have flattened exactly what makes it worth paying for.",
+    ],
+    solution: [
+      "An editorial storefront built around the brand rather than a product grid: the site reads as chapters — Story, La Carte, Lookbook, Correspondence, Reserve — closer to a magazine than a catalogue.",
+      "The full menu published with real prices: 31 cakes across four sections (Signature, Seasonal, Smalls & gifting, Bespoke), each with per-size pricing and eggless noted as available on request.",
+      "Ordering routed to WhatsApp, not a cart. Every cake has a Reserve action that opens a message with the cake already named, so the customer starts the conversation halfway through instead of at the beginning.",
+      "A lookbook of past work, each photographed piece captioned with the occasion it was made for, so new customers see bespoke work rather than stock photography.",
+      "Owner-managed imagery: hero, gallery and lookbook photos upload through an admin area, so a new bake can be on the site the day it leaves the kitchen.",
+    ],
+    features: [
+      {
+        title: "Order on WhatsApp",
+        line: "Every cake and the site-wide CTA open a pre-filled WhatsApp message — the channel the bakery already runs on.",
+      },
+      {
+        title: "Priced menu, 31 cakes",
+        line: "Four sections with per-size pricing, so customers self-qualify before they message.",
+      },
+      {
+        title: "Editorial art direction",
+        line: "Chaptered layout, plate numbering and serif display type — built to match a brand that calls itself an atelier.",
+      },
+      {
+        title: "Lookbook",
+        line: "Past cakes as portraits, each captioned with its occasion, doubling as proof of bespoke work.",
+      },
+      {
+        title: "Owner-updatable photos",
+        line: "Hero, gallery and lookbook images are uploaded through an admin area — no developer in the loop.",
+      },
+      {
+        title: "Built for the phone",
+        line: "Nearly all traffic arrives from an Instagram bio link, so the mobile layout is the primary design, not an adaptation.",
+      },
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind", "WhatsApp deep links", "Vercel"],
+    outcome: [
+      "The Instagram bio now points somewhere that sells: visitors can browse the full range and prices before they ever message.",
+      "Enquiries arrive with the cake already named, so the owner spends her time confirming details instead of listing flavours.",
+      "New bakes go up the same day they are made — the site stays current without a developer.",
+    ],
+    timeline: "Designed and shipped as a complete brand storefront.",
+  },
+  {
     slug: "quant-lab",
     title: "Quant Lab",
     client: "Product build",
