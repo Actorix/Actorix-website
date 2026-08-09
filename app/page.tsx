@@ -22,6 +22,7 @@ import Estimator from "@/components/estimator";
 import FounderCard from "@/components/founder-card";
 import { QuantLabShot } from "@/components/work-visuals";
 import GithubCard from "@/components/github-card";
+import Testimonials from "@/components/testimonials";
 import WorkStack from "@/components/work-stack";
 import ProcessTimeline from "@/components/process-timeline";
 import LaunchNotice from "@/components/launch-notice";
@@ -500,6 +501,8 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* ── Process ─────────────────────────────────────── */}
       <section id="process" className="border-y border-line bg-[#FCFCFD] py-24">
