@@ -6,6 +6,7 @@ import { SERVICES, serviceBySlug } from "@/lib/services";
 import { CASE_STUDIES } from "@/lib/case-studies";
 import { BANDS } from "@/lib/pricing";
 import Reveal from "@/components/reveal";
+import TextAnimation from "@/components/ui/staggerText";
 import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import JsonLd from "@/components/json-ld";
@@ -191,7 +192,7 @@ export default async function ServicePage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="max-w-2xl font-display text-2xl font-medium tracking-tight md:text-4xl">
-              Sound familiar?
+              <TextAnimation>Sound familiar?</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-x-12 gap-y-9 sm:grid-cols-2">
@@ -211,7 +212,7 @@ export default async function ServicePage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-              What we build
+              <TextAnimation>What we build</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -235,7 +236,7 @@ export default async function ServicePage({
           <Reveal>
             <p className="text-xs font-medium tracking-[0.28em] text-ink-faint">CONCRETELY</p>
             <h2 className="mt-4 font-display text-2xl font-medium tracking-tight md:text-4xl">
-              What this looks like in practice
+              <TextAnimation>What this looks like in practice</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-x-12 gap-y-5 sm:grid-cols-2">
@@ -256,7 +257,7 @@ export default async function ServicePage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-              How we work
+              <TextAnimation>How we work</TextAnimation>
             </h2>
           </Reveal>
           <ol className="mt-10 grid gap-7 sm:grid-cols-2 md:grid-cols-4">
@@ -283,8 +284,8 @@ export default async function ServicePage({
           <div className="mx-auto max-w-5xl px-6">
             <Reveal>
               <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-                We&apos;ve shipped this
-              </h2>
+              <TextAnimation>We&apos;ve shipped this</TextAnimation>
+            </h2>
             </Reveal>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {proof.map((c, i) => (
@@ -316,7 +317,7 @@ export default async function ServicePage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-              Questions, answered
+              <TextAnimation>Questions, answered</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-10 border-t border-line">
@@ -348,8 +349,8 @@ export default async function ServicePage({
             />
             <div className="relative">
               <h2 className="max-w-lg font-display text-3xl font-medium tracking-tight md:text-4xl">
-                Tell us what you need built
-              </h2>
+              <TextAnimation>Tell us what you need built</TextAnimation>
+            </h2>
               <p className="mt-4 max-w-md leading-relaxed text-white/70">
                 A free 20-minute call, then a fixed proposal in writing. We reply within
                 24 hours.
@@ -377,7 +378,9 @@ export default async function ServicePage({
 
       {/* Related services — internal linking for crawl depth */}
       <section className="mx-auto max-w-5xl px-6 pb-24">
-        <h2 className="font-display text-xl font-medium tracking-tight">Other services</h2>
+        <h2 className="font-display text-xl font-medium tracking-tight">
+              <TextAnimation>Other services</TextAnimation>
+            </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           {related.map((r) => (
             <Link

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CASE_STUDIES, bySlug } from "@/lib/case-studies";
 import Reveal from "@/components/reveal";
+import TextAnimation from "@/components/ui/staggerText";
 import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import LineHoverLink from "@/components/ui/line-hover-link";
@@ -171,7 +172,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] md:gap-16">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:sticky md:top-28 md:text-4xl">
-              The problem
+              <TextAnimation>The problem</TextAnimation>
             </h2>
           </Reveal>
           <div className="space-y-5">
@@ -189,7 +190,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto grid max-w-5xl gap-10 px-6 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] md:gap-16">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:sticky md:top-28 md:text-4xl">
-              What we built
+              <TextAnimation>What we built</TextAnimation>
             </h2>
           </Reveal>
           <div className="space-y-5">
@@ -210,7 +211,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-              Inside the build
+              <TextAnimation>Inside the build</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-12 grid gap-x-12 gap-y-9 sm:grid-cols-2">
@@ -230,7 +231,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-5xl px-6">
           <Reveal>
             <h2 className="font-display text-2xl font-medium tracking-tight md:text-4xl">
-              The result
+              <TextAnimation>The result</TextAnimation>
             </h2>
           </Reveal>
           <div className="mt-10 space-y-5">
@@ -275,8 +276,8 @@ export default async function CaseStudyPage({
             />
             <div className="relative">
               <h2 className="max-w-lg font-display text-3xl font-medium tracking-tight md:text-4xl">
-                Want something like this?
-              </h2>
+              <TextAnimation>Want something like this?</TextAnimation>
+            </h2>
               <p className="mt-4 max-w-md leading-relaxed text-white/70">
                 Tell us what your business needs. We reply within 24 hours with a
                 clear next step.
@@ -302,7 +303,9 @@ export default async function CaseStudyPage({
 
       {/* More work */}
       <section className="mx-auto max-w-5xl px-6 pb-24">
-        <h2 className="font-display text-xl font-medium tracking-tight">More work</h2>
+        <h2 className="font-display text-xl font-medium tracking-tight">
+              <TextAnimation>More work</TextAnimation>
+            </h2>
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {others.map((o) => (
             <Link

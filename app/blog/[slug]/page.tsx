@@ -8,6 +8,11 @@ import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import JsonLd from "@/components/json-ld";
 import { SITE, breadcrumbSchema } from "@/lib/seo";
+import Toc, { type TocItem } from "@/components/toc";
+
+/* stable, readable anchor ids — used by both the headings and the TOC */
+const slugify = (t: string) =>
+  t.toLowerCase().replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-");
 
 export async function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -71,7 +76,9 @@ function renderBlock(b: Block, i: number) {
       return (
         <h2
           key={i}
-          className="mt-14 font-display text-2xl font-medium tracking-tight md:text-[32px]"
+          id={slugify(b.text)}
+          /* scroll-mt clears the sticky header when jumping from the TOC */
+          className="mt-14 scroll-mt-24 font-display text-2xl font-medium tracking-tight md:text-[32px]"
         >
           {b.text}
         </h2>
@@ -176,6 +183,10 @@ export default async function BlogPost({
   if (!post) notFound();
 
   const others = POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const toc: TocItem[] = post.body
+    .filter((b): b is { t: "h2"; text: string } => b.t === "h2")
+    .map((b) => ({ id: slugify(b.text), text: b.text }));
+
   const date = new Date(post.published).toLocaleDateString("en-IN", {
     day: "numeric",
     month: "long",
@@ -225,7 +236,7 @@ export default async function BlogPost({
           aria-hidden
           className="pointer-events-none absolute -top-32 left-[10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(closest-side,rgba(239,68,68,0.10),transparent)]"
         />
-        <div className="relative mx-auto max-w-3xl px-5 pt-12 pb-20 sm:px-6">
+        <div className="relative mx-auto max-w-3xl px-5 pt-12 pb-20 sm:px-6 lg:max-w-6xl">
           <nav aria-label="Breadcrumb" className="text-sm text-ink-faint">
             <Link href="/blog" className="transition-colors hover:text-ink">
               ← All writing
@@ -240,11 +251,11 @@ export default async function BlogPost({
             <span>{post.tags.join(" / ")}</span>
           </div>
 
-          <h1 className="rise rise-1 mt-5 font-display text-[34px] font-medium leading-[1.08] tracking-tight md:text-[52px]">
+          <h1 className="rise rise-1 mt-5 max-w-4xl font-display text-[34px] font-medium leading-[1.08] tracking-tight md:text-[52px]">
             {post.title}
           </h1>
 
-          <p className="mt-6 text-lg leading-relaxed text-ink-soft">{post.intro}</p>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">{post.intro}</p>
 
           <div className="mt-8 flex items-center gap-3 border-y border-line py-4">
             <Image
@@ -260,7 +271,14 @@ export default async function BlogPost({
             </p>
           </div>
 
-          <div className="mt-2">{post.body.map(renderBlock)}</div>
+          {/* article + sticky TOC. The article keeps its readable measure;
+              the TOC only appears on lg and up, where there is room for it. */}
+          <div className="mt-2 lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:gap-16">
+            <div className="lg:max-w-[65ch]">{post.body.map(renderBlock)}</div>
+            <aside className="hidden lg:block">
+              <Toc items={toc} />
+            </aside>
+          </div>
 
           {others.length > 0 && (
             <div className="mt-16 border-t border-line pt-8">
