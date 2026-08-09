@@ -55,9 +55,9 @@ export default function Testimonials() {
 
               <figcaption className="mt-7 border-t border-line pt-5">
                 <p className="font-display text-[15px] font-medium text-ink">{t.name}</p>
-                <p className="mt-1 text-[13px] text-ink-faint">
-                  {t.role}, {t.company}
-                </p>
+                {/* company only — clients asked not to have their job titles
+                    published, so `role` stays in the data but is not rendered */}
+                <p className="mt-1 text-[13px] text-ink-faint">{t.company}</p>
                 {t.caseSlug && (
                   <Link
                     href={`/work/${t.caseSlug}`}

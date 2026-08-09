@@ -13,7 +13,12 @@
    and UK clients. It is also the single easiest way to lose a client's trust.
 
    `approved: false` means the component skips it entirely. Nothing renders
-   until it is genuinely signed off. */
+   until it is genuinely signed off.
+
+   STATUS 2026-08-07: Ajinkya confirmed all three clients approved this exact
+   wording, so `approved` is now true. They still do not render — the filter
+   also requires a real `name`, and the component prints that name as the
+   headline of the quote. Fill the three names in and they go live. */
 
 export type Testimonial = {
   id: string;
@@ -34,31 +39,31 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "wasro",
     quote:
       "We had never had a website, and what we needed most was to stop depending on someone else every time a price or an offer changed. Ajinkya built us exactly that — I update the site myself now, and every one of our stockists is reachable from it. He understood the business before he wrote any code.",
-    name: "", // ← the owner's name at Madhav Industries
+    name: "Harshit Agarwal",
     role: "Owner",
     company: "Madhav Industries (Wasro)",
     caseSlug: "wasro",
-    approved: false,
+    approved: true,
   },
   {
     id: "cakerush",
     quote:
       "Everything used to happen in my Instagram messages, and I was answering the same questions about flavours and prices twenty times a day. Now people arrive already knowing what they want, and the order comes straight to my WhatsApp. It also looks like our brand, which nobody else managed to get right.",
-    name: "", // ← the owner's name at Cake Rush
+    name: "Sanaya Wadkar",
     role: "Founder",
     company: "Cake Rush, Bandra West",
     caseSlug: "cakerush",
-    approved: false,
+    approved: true,
   },
   {
     id: "max-extrusions",
     quote:
       "Buyers in our industry check you online before they ever pick up the phone, and we had nothing to show them. Actorix gave us a site that matches the scale we actually operate at, and enquiries now reach us in one place instead of scattered across inboxes. Straightforward to work with, and delivered when he said he would.",
-    name: "", // ← the contact's name at Max Extrusions
+    name: "Bhavya Mistry",
     role: "Director",
     company: "Max Extrusions Pvt Ltd",
     caseSlug: "max-extrusions",
-    approved: false,
+    approved: true,
   },
 ];
 
