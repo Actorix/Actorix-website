@@ -32,6 +32,122 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: "ai-automation-small-business-india",
+    title: "What should a small business automate first?",
+    metaTitle: "AI Automation for Small Businesses in India — What to Automate First",
+    description:
+      "A practical guide to AI automation for Indian small businesses: the eight jobs worth automating first, what each costs, what to leave alone, and how to tell a real automation from an expensive toy.",
+    published: "2026-08-09",
+    readingMinutes: 9,
+    tags: ["Automation", "Small business", "AI"],
+    intro:
+      "Most automation advice is written for companies with an operations team. This is written for the businesses we actually work with — a manufacturer in Assam, a bakery in Bandra, an extrusions company outside Mumbai — where the person considering automation is also the person answering the phone.",
+    body: [
+      { t: "h2", text: "Start with the job you do most, not the one that sounds most impressive" },
+      {
+        t: "p",
+        text: "The instinct is to automate something clever. The money is almost always in something boring: the task you or your staff repeat every single day without thinking about it. Copying numbers between two screens. Replying to the same enquiry. Checking whether an order went out.",
+      },
+      {
+        t: "p",
+        text: "A useful test — for one week, note every task you do more than five times. The top of that list is your first automation, whatever it is. It will feel too mundane to be worth automating. That is exactly why it is costing you.",
+      },
+
+      { t: "h2", text: "Eight things worth automating first" },
+      {
+        t: "p",
+        text: "These are ordered roughly by how quickly they pay for themselves for a small Indian business.",
+      },
+      { t: "h3", text: "1. Enquiries that arrive on WhatsApp" },
+      {
+        t: "p",
+        text: "For most Indian SMBs, WhatsApp is the real front door. An automation can reply instantly with the information people always ask for, capture the enquiry into a list you can actually work from, and pass anything genuine to a human. The point is not to replace the conversation — it is to make sure a message at 10pm is not still sitting there at 10am.",
+      },
+      { t: "h3", text: "2. Invoice and document data entry" },
+      {
+        t: "p",
+        text: "Invoices, purchase orders and delivery notes arriving as PDFs or photos, then being retyped into a sheet or accounting tool. This is the single most common automation we build. Modern models read a scanned invoice reliably, and the output goes straight into whatever you already use.",
+      },
+      { t: "h3", text: "3. Content that goes stale without a developer" },
+      {
+        t: "p",
+        text: "Prices, offers, product lists. If changing a number on your own website means messaging someone and waiting, the site will drift out of date within a month. We built exactly this for Wasro — an admin panel where the owner updates prices, offers and featured products himself, live.",
+      },
+      { t: "h3", text: "4. Lead capture into one place" },
+      {
+        t: "p",
+        text: "Enquiries arriving by form, WhatsApp, phone and Instagram, each living somewhere different. Routing them all into a single sheet or CRM costs very little and immediately tells you something you probably do not know: where your business actually comes from.",
+      },
+      { t: "h3", text: "5. The status update customers ask for" },
+      {
+        t: "p",
+        text: "\"Has it shipped?\" \"Is it ready?\" Every one of those messages is a task you did not plan for. Automatic updates at each stage remove most of them, and customers prefer being told over having to ask.",
+      },
+      { t: "h3", text: "6. The daily summary you keep meaning to look at" },
+      {
+        t: "p",
+        text: "Yesterday's orders, enquiries and payments in your inbox at 9am. Cheap to build, and it changes behaviour — you notice a bad week on Tuesday instead of at month end.",
+      },
+      { t: "h3", text: "7. Answering the same twenty questions" },
+      {
+        t: "p",
+        text: "If your team answers the same questions all day, a chatbot trained on your own documents handles the repeats and hands the unusual ones to a person. The value is not the questions it answers; it is the attention freed up for the ones it cannot.",
+      },
+      { t: "h3", text: "8. Following up" },
+      {
+        t: "p",
+        text: "Most small businesses lose more revenue to enquiries nobody followed up than to enquiries they never received. An automation that reminds you — or drafts the follow-up for you — is usually the highest-return thing on this list, and the least exciting.",
+      },
+
+      { t: "h2", text: "What it costs" },
+      {
+        t: "p",
+        text: "For context, our own pricing: a single automation typically runs ₹25,000 to ₹1,00,000 and goes live in three to ten days. A chatbot trained on your documents is ₹40,000 to ₹1,50,000 and takes one to two weeks. Most businesses start with one workflow and add more once they trust it.",
+      },
+      {
+        t: "p",
+        text: "The number that matters is not the price — it is the payback. If a task takes an hour a day and you value that hour at ₹300, it is costing roughly ₹90,000 a year. Against that, a ₹40,000 automation pays for itself in about five months and then keeps paying.",
+      },
+
+      { t: "h2", text: "What not to automate" },
+      {
+        t: "ul",
+        items: [
+          "Anything you do rarely. Automating a monthly task usually costs more than the task ever will.",
+          "A process you are about to change. Automate a bad workflow and you have an efficient bad workflow. Fix it on paper first.",
+          "Judgement calls. Pricing a difficult job, handling an upset customer, deciding what to make next — these need a person, and customers can tell when they did not get one.",
+          "The final word to a customer, unsupervised. AI is good at drafting and triage. Let it prepare; let a human send anything that matters.",
+        ],
+      },
+      {
+        t: "quote",
+        text: "Automation multiplies whatever process you already have. If the process is broken, you get more broken, faster.",
+      },
+
+      { t: "h2", text: "How to tell a real automation from an expensive toy" },
+      {
+        t: "ul",
+        items: [
+          "It runs without anyone remembering to run it. If it needs a person to trigger it, you have moved the work, not removed it.",
+          "It fails loudly. Silent failure is worse than no automation — you will trust output that stopped being true weeks ago.",
+          "It works with the tools you already use. Replacing working software to enable an automation is usually a bad trade.",
+          "You can see what it did. A log or a sheet you can check beats a black box, every time.",
+          "You own it. If it lives in someone else's account and dies when you stop paying them, it is not yours.",
+        ],
+      },
+
+      { t: "h2", text: "A sensible first step" },
+      {
+        t: "p",
+        text: "Pick the one task from your week that you would most like to never do again. Not the most impressive one — the most repetitive one. That single automation, done properly and running unattended, teaches you more about what is worth automating in your business than any amount of planning.",
+      },
+      {
+        t: "cta",
+        text: "We build automations on fixed scope, usually live within a week or two. If you want an honest read on whether a task is worth automating — including when the answer is no — a 20-minute call is free.",
+      },
+    ],
+  },
+  {
     slug: "mvp-cost-india",
     title: "What does it cost to build an MVP in India in 2026?",
     metaTitle: "What Does It Cost to Build an MVP in India? (2026 Guide)",
