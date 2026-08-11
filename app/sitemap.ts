@@ -38,5 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
+    {
+      // the lookup form only — /verify/<number> results are noindex by design
+      url: `${SITE.url}/verify`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
   ];
 }
