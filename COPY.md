@@ -35,7 +35,7 @@ products for companies that want to operate faster and smarter.
 
 **Primary CTA:** Start a project → #contact
 **Secondary CTA:** See what we build → #services
-**Trust line:** hello@actorix.in · Mumbai, India · Working worldwide
+**Trust line:** actorix.business@gmail.com · Mumbai, India · Working worldwide
 
 ---
 
@@ -172,13 +172,13 @@ _(FAQ, Why, and About copy adopted from the approved Claude-design concept,
 Tell us what your business needs — a first version, an automation, a rebuild.
 We reply within 24 hours with a clear next step.
 
-**CTA:** hello@actorix.in
+**CTA:** actorix.business@gmail.com
 **Note:** Based in Mumbai · Working worldwide
 
 ## Footer
 
 © 2026 Actorix — Mumbai, India
-hello@actorix.in · LinkedIn · Instagram · GitHub
+actorix.business@gmail.com · LinkedIn · Instagram · GitHub
 
 ---
 
@@ -197,7 +197,7 @@ hello@actorix.in · LinkedIn · Instagram · GitHub
       The number now lives in ONE place: `SITE.whatsapp` in `lib/seo.ts`.
       Everything else imports `WHATSAPP_INTRO` (prefilled) or `WHATSAPP_BASE`
       (estimator appends its own text) — never hardcode it again.
-- [x] Contact form LIVE + tested end-to-end (Formspree xvkpgzwd → hello@actorix.in, 50/mo free tier) — 2026-08-06
+- [x] Contact form LIVE + tested end-to-end (Formspree xvkpgzwd → actorix.business@gmail.com, 50/mo free tier) — 2026-08-06
 - [x] WhatsApp LIVE (+91 91364 33771 — Business account) — contact band, orb, footer, estimator, schema.org
 - [x] Cal.com booking LIVE — cal.com/actorix-9b0leh (band + orb). SUGGEST: rename username to something clean like "actorix" in Cal settings — if renamed, update CAL_URL in page.tsx + orb (old link breaks!)
 - [x] Automation-examples strip (6 concrete one-liners, "CONCRETELY" band) — 2026-08-06

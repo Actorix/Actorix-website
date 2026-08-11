@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import { SITE } from "@/lib/seo";
 
 /* Social links for the dark contact band.
    This replaced Vengeance's SocialFlipButton: that component hid each icon
@@ -26,7 +27,7 @@ const links = [
   {
     icon: FaEnvelope,
     label: "Email",
-    href: "mailto:hello@actorix.in",
+    href: `mailto:${SITE.email}`,
   },
 ];
 

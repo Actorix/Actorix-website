@@ -328,8 +328,8 @@ export default async function CaseStudyPage({
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-5xl flex-col justify-between gap-4 px-6 py-10 text-sm text-ink-faint md:flex-row">
           <p>© 2026 Actorix — Mumbai, India</p>
-          <a href="mailto:hello@actorix.in" className="transition-colors hover:text-ink">
-            hello@actorix.in
+          <a href={`mailto:${SITE.email}`} className="transition-colors hover:text-ink">
+            {SITE.email}
           </a>
         </div>
       </footer>

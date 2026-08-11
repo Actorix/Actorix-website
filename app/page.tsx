@@ -288,7 +288,7 @@ export default function Home() {
               </LineHoverLink>
             </div>
             <p className="rise rise-4 mt-12 text-sm text-ink-faint">
-              hello@actorix.in · Mumbai, India · Working worldwide
+              {SITE.email} · Mumbai, India · Working worldwide
             </p>
           </div>
         </HeroParallax>
@@ -599,10 +599,10 @@ export default function Home() {
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="mailto:hello@actorix.in"
+                  href={`mailto:${SITE.email}`}
                   className="inline-block rounded-full bg-white px-7 py-3.5 font-medium text-ink transition-transform hover:-translate-y-0.5"
                 >
-                  hello@actorix.in
+                  {SITE.email}
                 </a>
                 <a
                   href={CAL_URL}
@@ -644,11 +644,11 @@ export default function Home() {
               Writing
             </LineHoverLink>
             <LineHoverLink
-              href="mailto:hello@actorix.in"
+              href={`mailto:${SITE.email}`}
               variant="slide"
               className="text-ink-soft transition-colors hover:text-ink"
             >
-              hello@actorix.in
+              {SITE.email}
             </LineHoverLink>
             <LineHoverLink
               href={WHATSAPP_URL}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { SITE } from "@/lib/seo";
 
 /* Contact form for the dark band — posts to Formspree.
    Rendered only when NEXT_PUBLIC_FORMSPREE_ID is set (see page.tsx),
@@ -114,7 +115,7 @@ export default function ContactForm({ formId }: { formId: string }) {
       </button>
       {status === "error" && (
         <p className="text-sm text-[#F5A3A3]">
-          Something broke — email us directly at hello@actorix.in
+          Something broke — email us directly at {SITE.email}
         </p>
       )}
     </form>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { ASSISTANT, looksLikeIntent } from "@/lib/assistant";
-import { WHATSAPP_INTRO } from "@/lib/seo";
+import { SITE, WHATSAPP_INTRO } from "@/lib/seo";
 
 /* Ari — the Actorix assistant.
    The logo mark itself is the launcher: click the orb and it becomes the chat.
@@ -78,7 +78,7 @@ export default function AssistantOrb() {
             role: "assistant",
             content:
               error ??
-              "I'm having trouble right now. Email hello@actorix.in — Ajinkya replies within 24 hours.",
+              `I'm having trouble right now. Email ${SITE.email} — Ajinkya replies within 24 hours.`,
           },
         ]);
         setShowActions(true);
@@ -106,7 +106,7 @@ export default function AssistantOrb() {
           {
             role: "assistant",
             content:
-              "Something went wrong on my end. You can reach Ajinkya directly at hello@actorix.in.",
+              `Something went wrong on my end. You can reach Ajinkya directly at ${SITE.email}.`,
           },
         ]);
         setShowActions(true);

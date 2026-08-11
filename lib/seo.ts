@@ -8,7 +8,17 @@ export const SITE = {
   url: "https://actorix.in",
   // Used in <title> as "Page — Actorix"
   tagline: "AI Automation & Custom Software Studio",
-  email: "hello@actorix.in",
+  /* The public contact address. Import SITE.email — never write an address
+     literally anywhere else, or the site, the schema and the invoices drift
+     apart the next time this changes.
+
+     It is the Gmail address, not hello@actorix.in: mail to the domain address
+     was not being delivered (Aug 2026) and a lead that reaches nobody is worse
+     than one that looks slightly less polished. Change it back here the moment
+     hello@ works — and update Google Business Profile, LinkedIn and Instagram
+     to match, because search treats an inconsistent contact as a weaker
+     signal. */
+  email: "actorix.business@gmail.com",
   phone: "+91-91364-33771",
   whatsapp: "https://wa.me/919136433771",
   booking: "https://cal.com/actorix-9b0leh",

@@ -1,4 +1,5 @@
 import { MODEL, systemPrompt, isInjection, INJECTION_REPLY } from "@/lib/assistant";
+import { SITE } from "@/lib/seo";
 
 /* Server-side proxy to Groq.
 
@@ -43,7 +44,7 @@ export async function POST(req: Request) {
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "anonymous";
   if (rateLimited(ip)) {
     return Response.json(
-      { error: "Too many messages — give me a moment, or just email hello@actorix.in." },
+      { error: `Too many messages — give me a moment, or just email ${SITE.email}.` },
       { status: 429 }
     );
   }
@@ -143,7 +144,7 @@ export async function POST(req: Request) {
         }
       } catch {
         controller.enqueue(
-          encoder.encode("\n\nSorry — I lost that connection. Email hello@actorix.in and Ajinkya will reply within 24 hours.")
+          encoder.encode(`\n\nSorry — I lost that connection. Email ${SITE.email} and Ajinkya will reply within 24 hours.`)
         );
       } finally {
         controller.close();
