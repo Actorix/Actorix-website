@@ -6,7 +6,12 @@ import { SERVICES, serviceBySlug } from "@/lib/services";
 import { CASE_STUDIES } from "@/lib/case-studies";
 import { BANDS } from "@/lib/pricing";
 import Reveal from "@/components/reveal";
+import ScaleIn from "@/components/scale-in";
+import SpotlightCard from "@/components/spotlight-card";
+import ProcessTimeline from "@/components/process-timeline";
 import TextAnimation from "@/components/ui/staggerText";
+import { FaqAccordion } from "@/components/ui/faq-accordion";
+import { BorderBeam } from "@/components/ui/border-beam";
 import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import JsonLd from "@/components/json-ld";
@@ -210,12 +215,14 @@ export default async function ServicePage({
               <TextAnimation>Sound familiar?</TextAnimation>
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-x-12 gap-y-9 sm:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {s.problems.map((p, i) => (
               <Reveal key={p.title} delay={i * 0.05}>
-                <div className="h-0.5 w-[26px] rounded-sm bg-[linear-gradient(90deg,#B91C1C,#EF4444)]" />
-                <h3 className="mt-4 font-display text-[19px] font-medium">{p.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{p.line}</p>
+                <SpotlightCard className="h-full rounded-2xl border border-line bg-white p-7">
+                  <div className="h-0.5 w-[26px] rounded-sm bg-[linear-gradient(90deg,#B91C1C,#EF4444)]" />
+                  <h3 className="mt-4 font-display text-[19px] font-medium">{p.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{p.line}</p>
+                </SpotlightCard>
               </Reveal>
             ))}
           </div>
@@ -232,13 +239,14 @@ export default async function ServicePage({
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {s.deliverables.map((d, i) => (
-              <Reveal
-                key={d.title}
-                delay={i * 0.05}
-                className="rounded-2xl border border-line bg-white p-7 shadow-[0_1px_2px_rgba(11,11,15,0.04),0_26px_50px_-34px_rgba(11,11,15,0.22)]"
-              >
-                <h3 className="font-display text-[19px] font-medium">{d.title}</h3>
-                <p className="mt-2.5 text-[15px] leading-relaxed text-ink-soft">{d.line}</p>
+              <Reveal key={d.title} delay={i * 0.05}>
+                <SpotlightCard className="relative h-full overflow-hidden rounded-2xl border border-line bg-white p-7 shadow-[0_1px_2px_rgba(11,11,15,0.04),0_26px_50px_-34px_rgba(11,11,15,0.22)]">
+                  {/* the beam runs on the first card only — on all four it
+                      reads as a screensaver rather than an accent */}
+                  {i === 0 && <BorderBeam duration={18} />}
+                  <h3 className="font-display text-[19px] font-medium">{d.title}</h3>
+                  <p className="mt-2.5 text-[15px] leading-relaxed text-ink-soft">{d.line}</p>
+                </SpotlightCard>
               </Reveal>
             ))}
           </div>
@@ -275,21 +283,17 @@ export default async function ServicePage({
               <TextAnimation>How we work</TextAnimation>
             </h2>
           </Reveal>
-          <ol className="mt-10 grid gap-7 sm:grid-cols-2 md:grid-cols-4">
-            {s.process.map((p, i) => (
-              <Reveal key={p} delay={i * 0.06}>
-                <li className="list-none">
-                  <div className="flex items-center gap-3">
-                    <span className="text-gradient-red font-display text-[13px] font-medium tracking-[0.06em]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="h-px flex-1 bg-line" />
-                  </div>
-                  <p className="mt-4 text-[14.5px] leading-relaxed text-ink-soft">{p}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ol>
+          {/* same scroll-drawn timeline as the homepage — the steps now carry
+              titles, which is what makes it readable at a glance */}
+          <div className="mt-10">
+            <ProcessTimeline
+              steps={s.process.map((p, i) => ({
+                number: String(i + 1).padStart(2, "0"),
+                title: p.title,
+                line: p.line,
+              }))}
+            />
+          </div>
         </div>
       </section>
 
@@ -335,29 +339,21 @@ export default async function ServicePage({
               <TextAnimation>Questions, answered</TextAnimation>
             </h2>
           </Reveal>
-          <div className="mt-10 border-t border-line">
-            {s.faqs.map((f, i) => (
-              <Reveal key={f.question} delay={i * 0.04}>
-                {/* plain markup, not an accordion: the answer text is in the
-                    HTML for crawlers and for FAQ rich results */}
-                <div className="border-b border-line py-7">
-                  <h3 className="font-display text-lg font-medium tracking-[-0.015em]">
-                    {f.question}
-                  </h3>
-                  <p className="mt-3 max-w-[70ch] text-[15.5px] leading-[1.66] text-ink-soft">
-                    {f.answer}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          {/* The accordion collapses with grid-rows 0fr→1fr rather than
+              unmounting, so every answer is still in the server-rendered HTML
+              for crawlers and for the FAQ rich result. Don't swap this for one
+              that conditionally renders its panel. */}
+          <Reveal className="mt-10 block">
+            <FaqAccordion items={s.faqs} />
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 pb-16">
-        <Reveal>
+        <ScaleIn>
           <div className="relative overflow-hidden rounded-[32px] bg-[linear-gradient(140deg,#0B0B0F_0%,#100F1D_52%,#15142F_100%)] px-10 py-16 text-white md:px-14">
+            <BorderBeam size={340} duration={12} borderWidth={2} />
             <div
               aria-hidden
               className="pointer-events-none absolute -top-20 right-[-8%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(239,68,68,0.28),transparent)]"
@@ -388,7 +384,7 @@ export default async function ServicePage({
               </div>
             </div>
           </div>
-        </Reveal>
+        </ScaleIn>
       </section>
 
       {/* Related services — internal linking for crawl depth */}

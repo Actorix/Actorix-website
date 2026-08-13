@@ -20,7 +20,7 @@ export type Service = {
   deliverables: { title: string; line: string }[];
   /** concrete, imaginable examples — this is what converts SMB buyers */
   examples: string[];
-  process: string[];
+  process: { title: string; line: string }[];
   priceKey: keyof typeof BANDS;
   faqs: { question: string; answer: string }[];
   /** case-study slugs that prove this service */
@@ -88,10 +88,10 @@ export const SERVICES: Service[] = [
       "Website lead submitted → scored, added to your CRM, and a follow-up drafted for you.",
     ],
     process: [
-      "A free 20-minute call to find the one process costing you the most time.",
-      "A fixed proposal — exact scope, timeline and price, written down.",
-      "We build and demo it running on your real data.",
-      "We deploy, monitor it, and add the next automation when you're ready.",
+      { title: "Find the leak", line: "A free 20-minute call to find the one process costing you the most time." },
+      { title: "Fix the price", line: "A fixed proposal — exact scope, timeline and price, written down." },
+      { title: "Build it", line: "We build and demo it running on your real data." },
+      { title: "Keep it running", line: "We deploy, monitor it, and add the next automation when you're ready." },
     ],
     priceKey: "automation",
     faqs: [
@@ -181,10 +181,10 @@ export const SERVICES: Service[] = [
       "Role-based access so staff see exactly what they should and nothing more.",
     ],
     process: [
-      "A free 20-minute call to understand the workflow before proposing anything.",
-      "A fixed proposal with scope, timeline and price agreed up front.",
-      "Weekly demos of working software — never a status report.",
-      "Launch, monitoring, and ongoing improvement with you.",
+      { title: "Understand", line: "A free 20-minute call to understand the workflow before proposing anything." },
+      { title: "Scope", line: "A fixed proposal with scope, timeline and price agreed up front." },
+      { title: "Build", line: "Weekly demos of working software — never a status report." },
+      { title: "Support", line: "Launch, monitoring, and ongoing improvement with you." },
     ],
     priceKey: "software",
     faqs: [
@@ -274,10 +274,10 @@ export const SERVICES: Service[] = [
       "A trading or analytics platform with real-time data and secure accounts.",
     ],
     process: [
-      "A free 20-minute call — we tell you honestly whether the idea is ready to build.",
-      "Scoping down to a launchable first version, with a fixed price and date.",
-      "Weekly demos of working software you can click through.",
-      "Launch to real users, then iterate on what they actually do.",
+      { title: "Pressure-test", line: "A free 20-minute call — we tell you honestly whether the idea is ready to build." },
+      { title: "Cut to v1", line: "Scoping down to a launchable first version, with a fixed price and date." },
+      { title: "Build", line: "Weekly demos of working software you can click through." },
+      { title: "Launch & learn", line: "Launch to real users, then iterate on what they actually do." },
     ],
     priceKey: "saas",
     faqs: [

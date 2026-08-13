@@ -7,6 +7,8 @@ import Reveal from "@/components/reveal";
 import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import JsonLd from "@/components/json-ld";
+import ScaleIn from "@/components/scale-in";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { SITE, breadcrumbSchema } from "@/lib/seo";
 import Toc, { type TocItem } from "@/components/toc";
 
@@ -150,8 +152,11 @@ function renderBlock(b: Block, i: number) {
       return (
         <div
           key={i}
-          className="mt-12 rounded-2xl border border-line bg-[#FCFCFD] p-7"
+          className="relative mt-12 overflow-hidden rounded-2xl border border-line bg-[#FCFCFD] p-7"
         >
+          {/* the one moving element in a long read — it marks the point where
+              the article stops explaining and starts asking */}
+          <BorderBeam duration={16} />
           <p className="text-[16px] leading-relaxed text-ink-soft">{b.text}</p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
@@ -258,7 +263,7 @@ export default async function BlogPost({
 
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">{post.intro}</p>
 
-          <div className="mt-10 overflow-hidden rounded-[22px] border border-line">
+          <ScaleIn className="mt-10 block overflow-hidden rounded-[22px] border border-line">
             <Image
               src={post.cover}
               alt={post.coverAlt}
@@ -268,7 +273,7 @@ export default async function BlogPost({
               priority
               className="h-auto w-full"
             />
-          </div>
+          </ScaleIn>
 
           <div className="mt-8 flex items-center gap-3 border-y border-line py-4">
             <Image

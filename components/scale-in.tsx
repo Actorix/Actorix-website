@@ -3,8 +3,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-/* Section zooms softly to full size as it enters — used on the contact band. */
-export default function ScaleIn({ children }: { children: React.ReactNode }) {
+/* Section zooms softly to full size as it enters — used on the contact band,
+   the service and case-study CTAs, and blog cover images. Takes a className so
+   it can carry the rounding and border of whatever it wraps, rather than
+   forcing an extra nested div. */
+export default function ScaleIn({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -14,7 +23,7 @@ export default function ScaleIn({ children }: { children: React.ReactNode }) {
   const opacity = useTransform(scrollYProgress, [0, 1], [0.55, 1]);
 
   return (
-    <motion.div ref={ref} style={{ scale, opacity }}>
+    <motion.div ref={ref} className={className} style={{ scale, opacity }}>
       {children}
     </motion.div>
   );

@@ -9,6 +9,9 @@ import ScrollProgress from "@/components/scroll-progress";
 import AssistantOrb from "@/components/assistant-orb";
 import LineHoverLink from "@/components/ui/line-hover-link";
 import JsonLd from "@/components/json-ld";
+import SpotlightCard from "@/components/spotlight-card";
+import ScaleIn from "@/components/scale-in";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { breadcrumbSchema, caseStudySchema, SITE } from "@/lib/seo";
 
 export async function generateStaticParams() {
@@ -214,12 +217,14 @@ export default async function CaseStudyPage({
               <TextAnimation>Inside the build</TextAnimation>
             </h2>
           </Reveal>
-          <div className="mt-12 grid gap-x-12 gap-y-9 sm:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2">
             {cs.features.map((f, i) => (
               <Reveal key={f.title} delay={i * 0.05}>
-                <div className="h-0.5 w-[26px] rounded-sm bg-[linear-gradient(90deg,#B91C1C,#EF4444)]" />
-                <h3 className="mt-4 font-display text-[19px] font-medium">{f.title}</h3>
-                <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">{f.line}</p>
+                <SpotlightCard className="h-full rounded-2xl border border-line bg-white p-7">
+                  <div className="h-0.5 w-[26px] rounded-sm bg-[linear-gradient(90deg,#B91C1C,#EF4444)]" />
+                  <h3 className="mt-4 font-display text-[19px] font-medium">{f.title}</h3>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">{f.line}</p>
+                </SpotlightCard>
               </Reveal>
             ))}
           </div>
@@ -268,8 +273,9 @@ export default async function CaseStudyPage({
 
       {/* CTA */}
       <section className="mx-auto max-w-5xl px-6 pb-20">
-        <Reveal>
+        <ScaleIn>
           <div className="relative overflow-hidden rounded-[32px] bg-[linear-gradient(140deg,#0B0B0F_0%,#100F1D_52%,#15142F_100%)] px-10 py-16 text-white md:px-14">
+            <BorderBeam size={340} duration={12} borderWidth={2} />
             <div
               aria-hidden
               className="pointer-events-none absolute -top-20 right-[-8%] h-[380px] w-[380px] rounded-full bg-[radial-gradient(closest-side,rgba(239,68,68,0.28),transparent)]"
@@ -298,7 +304,7 @@ export default async function CaseStudyPage({
               </div>
             </div>
           </div>
-        </Reveal>
+        </ScaleIn>
       </section>
 
       {/* More work */}
