@@ -4,6 +4,12 @@ import { SERVICES } from "@/lib/services";
 import { POSTS } from "@/lib/blog";
 import { SITE } from "@/lib/seo";
 
+/* `images` emits Google's image-sitemap extension. It only ever lists images
+   that genuinely appear on that page — listing images a page does not show is
+   against Google's guidance and is the fastest way to get the whole sitemap
+   distrusted. */
+const abs = (path: string) => `${SITE.url}${path}`;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
@@ -19,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.9,
+      images: [abs(sv.cover)],
     })),
     {
       url: `${SITE.url}/blog`,
@@ -31,12 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.published),
       changeFrequency: "monthly" as const,
       priority: 0.7,
+      images: [abs(post.cover)],
     })),
     ...CASE_STUDIES.map((cs) => ({
       url: `${SITE.url}/work/${cs.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+      ...(cs.image ? { images: [abs(cs.image)] } : {}),
     })),
     {
       // the lookup form only — /verify/<number> results are noindex by design

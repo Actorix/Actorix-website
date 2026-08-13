@@ -28,6 +28,11 @@ export type Post = {
   tags: string[];
   intro: string;
   body: Block[];
+  /* Branded card shown above the post and used as og:image. Descriptive
+     filenames on purpose — the filename is one of the few signals Google
+     Images has about what a picture shows. */
+  cover: string;
+  coverAlt: string;
 };
 
 export const POSTS: Post[] = [
@@ -40,6 +45,9 @@ export const POSTS: Post[] = [
     published: "2026-08-09",
     readingMinutes: 9,
     tags: ["Automation", "Small business", "AI"],
+    cover: "/images/actorix-what-to-automate-first-small-business.jpg",
+    coverAlt:
+      "What a small business should automate first — the highest-volume task, the task with clear rules, and the follow-ups that get forgotten",
     intro:
       "Most automation advice is written for companies with an operations team. This is written for the businesses we actually work with — a manufacturer in Assam, a bakery in Bandra, an extrusions company outside Mumbai — where the person considering automation is also the person answering the phone.",
     body: [
@@ -156,6 +164,9 @@ export const POSTS: Post[] = [
     published: "2026-08-08",
     readingMinutes: 8,
     tags: ["Pricing", "MVP", "SaaS"],
+    cover: "/images/actorix-mvp-cost-india-2026.jpg",
+    coverAlt:
+      "What it costs to build an MVP in India in 2026 — a real SaaS MVP starts around 2.5 lakh rupees",
     intro:
       "Almost every agency answers this with \"it depends — book a call\". That's true and useless. Here are the actual numbers we quote in 2026, what moves them, and how to scope a build so you pay less without ending up with something you have to throw away.",
     body: [

@@ -38,12 +38,13 @@ export async function generateMetadata({
       description: post.description,
       publishedTime: post.published,
       authors: [SITE.founder],
-      images: ["/opengraph-image.png"],
+      images: [post.cover],
     },
     twitter: {
       card: "summary_large_image",
       title: post.metaTitle,
       description: post.description,
+      images: [post.cover],
     },
   };
 }
@@ -64,7 +65,7 @@ function articleSchema(post: NonNullable<ReturnType<typeof postBySlug>>) {
     },
     publisher: { "@id": `${SITE.url}/#organization` },
     mainEntityOfPage: `${SITE.url}/blog/${post.slug}`,
-    image: `${SITE.url}/opengraph-image.png`,
+    image: `${SITE.url}${post.cover}`,
     inLanguage: "en-IN",
     keywords: post.tags.join(", "),
   };
@@ -212,7 +213,7 @@ export default async function BlogPost({
           <Link href="/" className="flex items-center gap-2.5">
             <Image
               src="/logo-mark.png"
-              alt="Actorix"
+              alt="Actorix — AI automation and custom software studio, Mumbai"
               width={36}
               height={30}
               priority
@@ -256,6 +257,18 @@ export default async function BlogPost({
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-relaxed text-ink-soft">{post.intro}</p>
+
+          <div className="mt-10 overflow-hidden rounded-[22px] border border-line">
+            <Image
+              src={post.cover}
+              alt={post.coverAlt}
+              width={1680}
+              height={882}
+              sizes="(min-width: 1024px) 820px, 100vw"
+              priority
+              className="h-auto w-full"
+            />
+          </div>
 
           <div className="mt-8 flex items-center gap-3 border-y border-line py-4">
             <Image

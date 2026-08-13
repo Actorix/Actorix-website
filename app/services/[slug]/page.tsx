@@ -35,12 +35,13 @@ export async function generateMetadata({
       url,
       title: s.metaTitle,
       description: s.metaDescription,
-      images: ["/opengraph-image.png"],
+      images: [s.cover],
     },
     twitter: {
       card: "summary_large_image",
       title: s.metaTitle,
       description: s.metaDescription,
+      images: [s.cover],
     },
   };
 }
@@ -114,7 +115,7 @@ export default async function ServicePage({
           <Link href="/" className="flex items-center gap-2.5">
             <Image
               src="/logo-mark.png"
-              alt="Actorix"
+              alt="Actorix — AI automation and custom software studio, Mumbai"
               width={36}
               height={30}
               priority
@@ -184,6 +185,20 @@ export default async function ServicePage({
             Typically <span className="font-medium text-ink">{band.inr}</span> ({band.usd}) ·{" "}
             {band.timeline} · fixed price agreed before work starts
           </p>
+
+          {/* These pages carried no imagery at all, which cost them in image
+              search and made them a wall of text. Real dimensions are passed so
+              the browser reserves the space and nothing shifts on load. */}
+          <div className="mt-12 overflow-hidden rounded-[22px] border border-line">
+            <Image
+              src={s.cover}
+              alt={s.coverAlt}
+              width={1680}
+              height={882}
+              sizes="(min-width: 1024px) 900px, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </section>
 

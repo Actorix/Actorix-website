@@ -34,7 +34,7 @@ export default async function VerifyPage({
           <Link href="/" className="flex items-center gap-2.5">
             <Image
               src="/logo-mark.png"
-              alt="Actorix"
+              alt="Actorix — AI automation and custom software studio, Mumbai"
               width={36}
               height={30}
               priority

@@ -39,7 +39,7 @@ export default function SiteHeader() {
         <a href="#top" className="flex flex-none items-center gap-2.5">
           <Image
             src="/logo-mark.png"
-            alt="Actorix"
+            alt="Actorix — AI automation and custom software studio, Mumbai"
             width={36}
             height={30}
             priority

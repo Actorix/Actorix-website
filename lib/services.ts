@@ -26,6 +26,11 @@ export type Service = {
   /** case-study slugs that prove this service */
   proof: string[];
   related: string[];
+  /* Branded card shown at the top of the page and used as og:image.
+     Filenames are descriptive on purpose — the filename is one of the few
+     signals Google Images has about what a picture shows. */
+  cover: string;
+  coverAlt: string;
 };
 
 export const SERVICES: Service[] = [
@@ -118,6 +123,9 @@ export const SERVICES: Service[] = [
     ],
     proof: ["wasro", "max-extrusions"],
     related: ["custom-software-development", "saas-mvp-development"],
+    cover: "/images/actorix-ai-automation-services-india.jpg",
+    coverAlt:
+      "Actorix AI automation services in India — automating quotes, invoices, follow-ups and reports for small businesses",
   },
   {
     slug: "custom-software-development",
@@ -208,6 +216,9 @@ export const SERVICES: Service[] = [
     ],
     proof: ["wasro", "godrej-reserve", "max-extrusions"],
     related: ["ai-automation", "saas-mvp-development"],
+    cover: "/images/actorix-custom-software-development-mumbai.jpg",
+    coverAlt:
+      "Actorix custom software development in Mumbai — internal tools, dashboards and CRMs built around your business",
   },
   {
     slug: "saas-mvp-development",
@@ -298,6 +309,9 @@ export const SERVICES: Service[] = [
     ],
     proof: ["quant-lab", "wasro"],
     related: ["ai-automation", "custom-software-development"],
+    cover: "/images/actorix-saas-mvp-development-india.jpg",
+    coverAlt:
+      "Actorix SaaS MVP development in India — shipping a first version in weeks, not a year-long build",
   },
 ];
 

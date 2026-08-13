@@ -139,6 +139,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "quant-lab",
     title: "Quant Lab",
+    image: "/images/actorix-quant-lab-trading-analytics-platform.jpg",
     client: "Product build",
     category: "Algorithmic trading platform",
     year: "2026",
