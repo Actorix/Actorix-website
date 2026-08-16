@@ -16,9 +16,12 @@
    until it is genuinely signed off.
 
    STATUS 2026-08-07: Ajinkya confirmed all three clients approved this exact
-   wording, so `approved` is now true. They still do not render — the filter
-   also requires a real `name`, and the component prints that name as the
-   headline of the quote. Fill the three names in and they go live. */
+   wording, so `approved` is true and all three render.
+
+   STATUS 2026-08-16: Cake Rush replaced with the client's OWN words, submitted
+   through the feedback form (5/5, "Definitely" would recommend). That is the
+   strongest kind of testimonial there is — as the other clients return real
+   reviews, swap theirs in the same way rather than keeping the drafted text. */
 
 export type Testimonial = {
   id: string;
@@ -47,10 +50,13 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "cakerush",
+    /* The client's own words, submitted via the feedback form on 2026-08-16.
+       Only copy-edited for grammar ("design quality were" → "was") and
+       readability — no meaning changed, nothing added. */
     quote:
-      "Everything used to happen in my Instagram messages, and I was answering the same questions about flavours and prices twenty times a day. Now people arrive already knowing what they want, and the order comes straight to my WhatsApp. It also looks like our brand, which nobody else managed to get right.",
+      "It was a great experience working with you. Every detail I wanted in my website was addressed and developed far better than I expected. All the elements were extremely creative and innovative. The design quality was exactly what I had in mind, and the whole shopping journey was designed keeping the customers in mind.",
     name: "Sanaya Wadkar",
-    role: "Founder",
+    role: "Owner",
     company: "Cake Rush, Bandra West",
     caseSlug: "cakerush",
     approved: true,
